@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Pozoriste" Class="PozoristeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Pozoriste.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PozoristeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Zanimanje" Member="Zanimanjes">
+    <Type Name="Zanimanje">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nazivZanimanja" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Karta" Member="Kartas">
+    <Type Name="Karta">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPredstave" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idKorisnika" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Korisnik_Karta" Member="Korisnik" ThisKey="idKorisnika" OtherKey="id" Type="Korisnik" IsForeignKey="true" />
+      <Association Name="Predstava_Karta" Member="Predstava" ThisKey="idPredstave" OtherKey="id" Type="Predstava" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Korisnik" Member="Korisniks">
+    <Type Name="Korisnik">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ime" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="prezime" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pass" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="tip" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Korisnik_Karta" Member="Kartas" ThisKey="id" OtherKey="idKorisnika" Type="Karta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Predstava" Member="Predstavas">
+    <Type Name="Predstava">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="imePredstave" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="opisPredstave" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="autorTeksta" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="brojKarata" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Predstava_Karta" Member="Kartas" ThisKey="id" OtherKey="idPredstave" Type="Karta" />
+    </Type>
+  </Table>
+</Database>

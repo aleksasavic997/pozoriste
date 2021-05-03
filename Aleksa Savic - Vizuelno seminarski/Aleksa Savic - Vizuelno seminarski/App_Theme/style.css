@@ -1,0 +1,87 @@
+﻿body {
+    width: auto;
+    background-image: url("../../Images/theater.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 750px;
+}
+.loginKlasa {
+    margin: auto;
+    margin-left: 40px;
+    width: 40%;
+    float: left;
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+#login {
+    margin: auto;
+    width: 70%;
+    height: 285px;
+    color: white;
+    padding-bottom: 10px;
+}
+
+#registracijaa {
+    margin-left: 350px;
+    margin: auto;
+    width: 70%;
+    height: 395px;
+    color: white;
+    padding-bottom: 10px;
+}
+
+#main {
+    margin: auto;
+    padding-top: 30px;
+    width: 800px;
+    
+}
+
+
+#meni {
+    margin: auto;
+    width:800px;
+    background-color: brown;
+}
+#dodajPredstavu {
+    color: white;
+    margin: auto;
+    width: 800px;
+    text-align: center;
+    padding-bottom: 10px;
+    font-weight: bold;
+    background-color:brown;
+}
+#dodajPredstavuDiv {
+    margin: auto;
+    width: 50%;
+    text-align: left;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+    ul li {
+        float: left;
+    }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+li a:hover, .selektovano {
+    background-color:darkred;
+}
+
